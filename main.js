@@ -20,10 +20,8 @@ function processUserLocation(userLoc) {
   tempNumber[0].textContent = userLoc.current.temp_c + degreeSymbol;
   place[0].textContent = userLoc.location.name;
   weather[0].textContent = curr_condition;
-
   errorMessage.textContent = "";
   time[0].textContent = date.toLocaleString("en-IN", options);
-
   if (curr_condition === "Mist") {
     backgroundTemp.classList.remove("rainy");
     backgroundTemp.classList.remove("sunny");
@@ -59,10 +57,7 @@ function locationNotFound() {
 getLocation.addEventListener("keypress", (event) => {
   if (event.key === "Enter") {
     loc = getLocation.value;
-    let apiurl =
-      "https://api.weatherapi.com/v1/current.json?key=0c80b2b56f1943ada19100744230103&q=" +
-      loc +
-      "&aqi=no";
+    let apiurl ="https://api.weatherapi.com/v1/current.json?key=0c80b2b56f1943ada19100744230103&q=" +loc +"&aqi=no";
     getLocation.value = "";
     fetch(apiurl)
       .then((response) => {
