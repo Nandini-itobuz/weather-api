@@ -9,15 +9,6 @@ body {
   background-color: rgb(8, 17, 49);
 }
 
-#error-msg {
-  width: 55%;
-  height: 2rem;
-  margin: auto;
-  border: 0px;
-  text-align: center;
-  color: red;
-}
-
 .search {
   width: 100%;
   margin: 60px auto 10px auto;
@@ -36,7 +27,7 @@ body {
   background-size: 30px 30px;
   background-repeat: no-repeat;
   background-position: 98% 40%;
-  background-color: #E3E3E3;
+  background-color: #e3e3e3;
   border: 0;
 }
 .search #search-text:focus {
@@ -48,7 +39,16 @@ body {
   height: 3.5em;
   border-radius: 25px;
   border: 0;
-  background-color: #E3E3E3;
+  background-color: #e3e3e3;
+}
+
+#error-msg {
+  width: 55%;
+  height: 2rem;
+  margin: auto;
+  border: 0px;
+  text-align: center;
+  color: red;
 }
 
 .main {

@@ -7,29 +7,6 @@ const time = document.getElementsByClassName("time");
 const place = document.getElementsByClassName("place");
 const errorMessage = document.getElementById("error-msg");
 
-function getPlace() {
-  loc = getLocation.value;
-  let apiurl =
-    "https://api.weatherapi.com/v1/current.json?key=0c80b2b56f1943ada19100744230103&q=" +
-    loc +
-    "&aqi=no";
-  getLocation.value = "";
-  fetch(apiurl)
-    .then((response) => {
-      if (!response.ok) {
-        console.log("Not Ok");
-      }
-      return response.json();
-    })
-    .then((userLoc) => {
-      processUserLocation(userLoc);
-    })
-    .catch((error) => {
-      locationNotFound();
-      console.error("Error:", error);
-    });
-}
-
 function processUserLocation(userLoc) {
   errorMessage.textContent = "";
   const curr_condition = userLoc.current.condition.text;
