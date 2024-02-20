@@ -23,7 +23,7 @@ body {
     height: 3.5em;
     padding: 20px;
     border-radius: 25px;
-    background: url("images/magnifying-glass-location-solid (1).svg");
+    background: url("images/magnifying-glass-location-solid.svg");
     background-size: 30px 30px;
     background-repeat: no-repeat;
     background-position: 98% 40%;
@@ -32,15 +32,6 @@ body {
     &:focus {
       outline: none;
     }
-  }
-
-  #search-btn {
-    width: 20%;
-    margin-left: 1%;
-    height: 3.5em;
-    border-radius: 25px;
-    border: 0;
-    background-color: #e3e3e3;
   }
 }
 
@@ -318,10 +309,6 @@ $sun: linear-gradient(
 
     #search-text {
       width: 60%;
-    }
-
-    #search-btn {
-      width: 10%;
     }
   }
 }
