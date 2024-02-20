@@ -54,9 +54,8 @@ function locationNotFound() {
   time[0].textContent = "-----------";
 }
 
-getLocation.addEventListener("keypress", (event) => {
-  if (event.key === "Enter") {
-    loc = getLocation.value;
+function fetchData(){
+  loc = getLocation.value;
     let apiurl ="https://api.weatherapi.com/v1/current.json?key=0c80b2b56f1943ada19100744230103&q=" +loc +"&aqi=no";
     getLocation.value = "";
     fetch(apiurl)
@@ -73,5 +72,14 @@ getLocation.addEventListener("keypress", (event) => {
         locationNotFound();
         console.error("Error:", error);
       });
+}
+
+getLocation.addEventListener("keypress", (event) => {
+  if (event.key === "Enter") {
+    fetchData();
   }
 });
+
+function getPlace(){
+  fetchData();
+}

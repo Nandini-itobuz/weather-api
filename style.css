@@ -33,6 +33,14 @@ body {
 .search #search-text:focus {
   outline: none;
 }
+.search #search-btn {
+  width: 20%;
+  margin-left: 1%;
+  height: 3.5em;
+  border-radius: 25px;
+  border: 0;
+  background-color: #E3E3E3;
+}
 
 #error-msg {
   width: 55%;
@@ -257,5 +265,8 @@ body {
   }
   .search #search-text {
     width: 60%;
+  }
+  #search-btn {
+    width: 10%;
   }
 }/*# sourceMappingURL=style.css.map */
