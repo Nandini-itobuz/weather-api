@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Temprature</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <div>
+        <div class="search">
+            <input type="text" name="search" placeholder="Enter your location here" id="search-text" />
+            <input type="button" value="Search" id="search-btn" onclick="getPlace()" />
+        </div>
+
+        <div id="error-msg"></div>
+
+        <div class="sunny main">
+            <div class="container-info">
+                <div class="rain-text current-condition text-white">----</div>
+                <div class="card-item text-white">
+                    <h1 class="temprature">-</h1>
+                    <div class="card-date-place">
+                        <div class="time">-----------</div>
+                        <div>
+                            <img src="images/icon.svg" alt="icon" style="width: 5%" />&nbsp;
+                            <div class="place" style="display: inline-block; text-align: center">
+                                ----
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="snowy-cloud">
+                    <div class="night">
+                        <div class="drops">
+                            <span class="rain-drpos"></span>
+                            <span class="dew-drops rain-drpos"></span>
+                            <span class="dew-drops-sm rain-drpos"></span>
+                        </div>
+
+                        <div class="drops">
+                            <span class="dew-drops-sm rain-drpos"></span>
+                            <span class="dew-drops rain-drpos"></span>
+                            <span class="dew-drops-sm rain-drpos"></span>
+                            <span class="dew-drops rain-drpos"></span>
+                            <span class=" rain-drpos"></span>
+                        </div>
+
+                        <div class="drops">
+                            <span class="rain-drpos"></span>
+                            <span class="dew-drops-sm rain-drpos"></span>
+                            <span class="dew-drops rain-drpos"></span>
+                        </div>
+
+                        <div class="drops">
+                            <span class="rain-drpos"></span>
+                            <span class="dew-drops rain-drpos"></span>
+                            <span class=" rain-drpos"></span>
+                        </div>
+
+                        <div class="rain-sm">
+                            <div class="drops-sm">
+                                <span class="rain-drpos-sm"></span>
+                                <span class="rain-drpos-sm"></span>
+                            </div>
+
+                            <div class="drops-sm">
+                                <span class="rain-drpos-sm"></span>
+                                <span class="rain-drpos-sm"></span>
+                                <span class="rain-drpos-sm"></span>
+                            </div>
+
+                            <div class="drops-sm">
+                                <span class="rain-drpos-sm"></span>
+                                <span class="rain-drpos-sm"></span>
+                                <span class="rain-drpos-sm"></span>
+                            </div>
+
+                            <div class="drops-sm">
+                                <span class="rain-drpos-sm"></span>
+                                <span class="rain-drpos-sm"></span>
+                                <span class="rain-drpos-sm"></span>
+                                <span class="rain-drpos-sm"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <img src="images/cloud.svg" class="cloud-rainy" />
+                    <div class="moon"></div>
+                </div>
+
+                <div class="rainy-thunder">
+                    <img src="images/thunder.svg" class="thunder" />
+                    <img src="images/cloud.svg" class="cloud" />
+                </div>
+
+                <div class="sun-rays">
+                    <div class="light-blue"></div>
+                    <div class="rays"></div>
+                    <div class="sun"></div>
+                </div>
+            </div>
+        </div>
+
+        <script src="./index-main.js"></script>
+    </div>
+</body>
+
+</html>
