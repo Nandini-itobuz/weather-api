@@ -8,20 +8,20 @@ const place = document.getElementsByClassName("place");
 const errorMessage = document.getElementById("error-msg");
 
 function processUserLocation(userLoc) {
-  errorMessage.textContent = "";
-  const curr_condition = userLoc.current.condition.text;
-  const degreeSymbol = "\u00B0";
-  tempNumber[0].textContent = userLoc.current.temp_c + degreeSymbol;
-  place[0].textContent = userLoc.location.name;
-  weather[0].textContent = curr_condition;
-  const date = new Date();
-
   const options = {
     weekday: "long",
     month: "long",
     day: "numeric",
   };
+  const curr_condition = userLoc.current.condition.text;
+  const degreeSymbol = "\u00B0";
+  const date = new Date();
 
+  tempNumber[0].textContent = userLoc.current.temp_c + degreeSymbol;
+  place[0].textContent = userLoc.location.name;
+  weather[0].textContent = curr_condition;
+
+  errorMessage.textContent = "";
   time[0].textContent = date.toLocaleString("en-IN", options);
 
   if (curr_condition === "Mist") {
