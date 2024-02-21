@@ -7,32 +7,36 @@ const time = document.getElementsByClassName("time");
 const place = document.getElementsByClassName("place");
 const errorMessage = document.getElementById("error-msg");
 
-function processUserLocation(userLoc) {
-  const options = {
-    weekday: "long",
-    month: "long",
-    day: "numeric",
-  };
-  const curr_condition = userLoc.current.condition.text;
+function processUserLocation(name, text, temp_c) {
+  const curr_condition = text;
   const degreeSymbol = "\u00B0";
   const date = new Date();
+  newDate = date.toDateString();
 
-  tempNumber[0].textContent = userLoc.current.temp_c + degreeSymbol;
-  place[0].textContent = userLoc.location.name;
+  tempNumber[0].textContent = temp_c + degreeSymbol;
+  place[0].textContent = name;
   weather[0].textContent = curr_condition;
   errorMessage.textContent = "";
-  time[0].textContent = date.toLocaleString("en-IN", options);
-  if (curr_condition === "Mist") {
+  time[0].textContent = newDate;
+  if (
+    curr_condition === "Partly cloudy" ||
+    curr_condition === "Mist" ||
+    curr_condition === "Freezing fog" ||
+    curr_condition === "Light snow" ||
+    curr_condition === "Cloudy" ||
+    curr_condition === "Moderate or heavy snow showers"
+  ) {
     backgroundTemp.classList.remove("rainy");
     backgroundTemp.classList.remove("sunny");
     backgroundTemp.classList.add("snowy");
   }
 
   if (
-    curr_condition === "Partly cloudy" ||
     curr_condition === "Light rain" ||
     curr_condition === "Overcast" ||
-    curr_condition === "Moderate or heavy rain with thunder"
+    curr_condition === "Patchy rain nearby" ||
+    curr_condition === "Moderate or heavy rain with thunder" ||
+    curr_condition === "Moderate rain"
   ) {
     backgroundTemp.classList.remove("sunny");
     backgroundTemp.classList.remove("snowy");
@@ -54,24 +58,29 @@ function locationNotFound() {
   time[0].textContent = "-----------";
 }
 
-function fetchData(){
+function fetchData() {
   loc = getLocation.value;
-    let apiurl ="https://api.weatherapi.com/v1/current.json?key=0c80b2b56f1943ada19100744230103&q=" +loc +"&aqi=no";
-    getLocation.value = "";
-    fetch(apiurl)
-      .then((response) => {
-        if (!response.ok) {
-          console.log("Not Ok");
-        }
-        return response.json();
-      })
-      .then((userLoc) => {
-        processUserLocation(userLoc);
-      })
-      .catch((error) => {
-        locationNotFound();
-        console.error("Error:", error);
-      });
+  let apiurl ="https://api.weatherapi.com/v1/current.json?key=0c80b2b56f1943ada19100744230103&q=" +loc +"&aqi=no";
+  getLocation.value = "";
+  fetch(apiurl)
+    .then((response) => {
+      return response.json();
+    })
+    .then((userLoc) => {
+      const { location: locationMain, current: current } = userLoc;
+      const {name } = locationMain;
+      const {condition :{text} } = current;
+      const {temp_c} =current;
+      processUserLocation(name, text, temp_c);
+    })
+    .catch((error) => {
+      locationNotFound();
+      console.error("Error:", error);
+    });
+}
+
+function getPlace() {
+  fetchData();
 }
 
 getLocation.addEventListener("keypress", (event) => {
@@ -79,7 +88,3 @@ getLocation.addEventListener("keypress", (event) => {
     fetchData();
   }
 });
-
-function getPlace(){
-  fetchData();
-}
